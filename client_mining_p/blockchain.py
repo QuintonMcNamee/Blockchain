@@ -142,7 +142,10 @@ def mine():
     else:
         block_string = json.dumps(blockchain.last_block, sort_keys=True)
 
+
         if blockchain.valid_proof(block_string, data['proof']) == True:
+            # actually make the new block
+            blockchain.new_block(data['proof'])
             return jsonify({'response': 'New Block Forged'}), 200
         else:
             return jsonify({'response': 'error'}), 500

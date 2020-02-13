@@ -42,6 +42,7 @@ def valid_proof(block_string, proof):
     guess_hash = hashlib.sha256(guess).hexdigest()
 
     # return when leading number of zeros is met
+    # dont need if else here
     if guess_hash[:5] == "00000":
         return True
     else:
